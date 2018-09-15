@@ -25,7 +25,11 @@ class BooksApp extends React.Component {
     console.log('Current path', currentPage);
     return (
       <div className="app">
-		<Details books={this.state.books} />
+		<Route exact path='/' render={() => (
+			<Details
+				books={this.state.books}
+			/>
+		)} />
         <Route path='/search' component={Search} />
       </div>
     )
