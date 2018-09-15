@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CurrentlyReading from './CurrentlyReading';
+import WantToRead from './WantToRead';
+import Read from './Read';
 //import BookGrid from './BookGrid';
 
 class Details extends React.Component {
@@ -17,49 +20,14 @@ class Details extends React.Component {
                 </div>
 				<div className="list-books-content">
 					<div>
-						<div className="bookshelf">
-							<h2 className="bookshelf-title">Currently Reading</h2>
-							<div className="bookshelf-books">
-								<ol className="books-grid">
-                      				<li>
-										<div className="book">
-												{books.map((book) => (
-													<div key={book.id}>
-														{book.shelf === 'currentlyReading' &&
-															<div className="book-top">
-																<div 
-																	className="book-cover" 
-																	style={{ 
-																		width: 128, height: 193, 
-																		backgroundImage: `url(${book.imageLinks.thumbnail})`}}>
-																</div>
-																<div className="book-shelf-changer">
-																  <select>
-																	<option value="move" disabled>Move to...</option>
-																	<option value="currentlyReading">Currently Reading</option>
-																	<option value="wantToRead">Want to Read</option>
-																	<option value="read">Read</option>
-																	<option value="none">None</option>
-																  </select>
-																</div>
-																<p className="book-title">{book.title}</p>
-																<p className="book-authors">{book.authors}</p>
-															</div>
-														}
-													</div>
-												))}
-										</div>
-									</li>
-								</ol>
-							</div>
-						</div>
+						<CurrentlyReading books={books} />
 					</div>
-					
-			
-			
-			
-			
-					
+					<div>
+						<WantToRead books={books} />
+					</div>
+					<div>
+						<Read books={books} />
+					</div>
 				</div>
             </div>
         );

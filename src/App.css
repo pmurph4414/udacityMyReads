@@ -136,8 +136,8 @@ body, .app {
 .book-top {
   position: relative;
   height: 200px;
-  display: flex;
-  align-items: flex-end;
+  /*display: flex;
+  align-items: flex-end;*/
 }
 
 .book-shelf-changer {
