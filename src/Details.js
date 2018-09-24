@@ -11,7 +11,7 @@ class Details extends React.Component {
     }
 
     render() {
-		const {books} = this.props;
+		const {books, onMoveBook} = this.props;
 		console.log('books', this.props);
         return (
             <div className="list-books">
@@ -20,7 +20,9 @@ class Details extends React.Component {
                 </div>
 				<div className="list-books-content">
 					<div>
-						<CurrentlyReading books={books} />
+						<CurrentlyReading 
+							books={books}
+							onDeleteContact={this.removeContact} />
 					</div>
 					<div>
 						<WantToRead books={books} />

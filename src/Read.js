@@ -3,19 +3,13 @@ import PropTypes from 'prop-types';
 
 class Read extends React.Component {
 	static propTypes = {
-        books: PropTypes.array.isRequired
+        books: PropTypes.array.isRequired,
+		onMoveBook: PropTypes.func.isRequired
     }
 
     render() {
 		const {books} = this.props;
-		console.log('books', books);
-//		const readAuthors = books.filter(b => b.shelf === 'read').map(b => `${b.author}\n`)
-//			  books.map(b => b.authors);
-//		const readAuthors = books.filter(b => b.authors === 'William E. Shoots').map(b => `${b.author}\n`);
-//		const readAuthors = books.filter((b) => (b.shelf === 'read'));
-//		console.log('Authors', readAuthors);
 
-		console.log('books', this.props);
         return (
            <div className="bookshelf">
 				<h2 className="bookshelf-title">Read</h2>
@@ -33,7 +27,8 @@ class Read extends React.Component {
 													backgroundImage: `url(${book.imageLinks.thumbnail})`}}>
 											</div>
 											<div className="book-shelf-changer">
-											  <select>
+											  <select
+												onChange={() => this.props.onMoveBook(book)}>
 												<option value="move" disabled>Move to...</option>
 												<option value="currentlyReading">Currently Reading</option>
 												<option value="wantToRead">Want to Read</option>

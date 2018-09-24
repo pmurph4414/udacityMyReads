@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 
 class CurrentlyReading extends React.Component {
 	static propTypes = {
-        books: PropTypes.array.isRequired
+        books: PropTypes.array.isRequired,
+		onDeleteContact: PropTypes.func.isRequired
     }
 
     render() {
 		const {books} = this.props;
-		console.log('books', this.props);
+		
         return (
            <div className="bookshelf">
 				<h2 className="bookshelf-title">Currently Reading</h2>
@@ -26,7 +27,8 @@ class CurrentlyReading extends React.Component {
 													backgroundImage: `url(${book.imageLinks.thumbnail})`}}>
 											</div>
 											<div className="book-shelf-changer">
-											  <select>
+											  <select
+												onChange={() => this.props.onMoveBook(book)}>
 												<option value="move" disabled>Move to...</option>
 												<option selected value="currentlyReading">Currently Reading</option>
 												<option value="wantToRead">Want to Read</option>

@@ -172,3 +172,17 @@ body, .app {
   text-align: center;
   font-size: 0.8em;
 }
+.link {
+  display: block;
+  position: absolute;
+  right: 100;	
+  width: 50px;
+  height: 53px;
+  border-radius: 50%;	
+  background: #60ac5d;
+  background-image: url('./icons/add.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28px;
+  font-size: 0;
+}
